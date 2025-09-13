@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="thiết kế website, bán source code, share source code, Phạm Minh Hiếu, lập trình web" />
+  <meta name="author" content="Phạm Minh Hiếu" />
+  <title>Phạm Minh Hiếu - ICTU</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="avatar-frame">
+      <img src="assets/avatar.jpeg" alt="Ảnh đại diện của Phạm Minh Hiếu" class="avatar" />
+      <img src="assets/frame.png" alt="Khung viền ảnh đại diện" class="avatar-border" />
+    </div>
+    
+    <div class="name">
+      𝐏𝐡ạ𝐦 𝐌𝐢𝐧𝐡 𝐇𝐢ế𝐮
+      <img src="./assets/verified.png" alt="Huy hiệu xác minh" class="verified-badge" />
+    </div>
+
+    <div class="info">
+      Sinh Viên Lớp CNOTO K21A - Trường đại học CNTT&TT Thái Nguyên<br>
+      1m83 - 58kg - cao gầy<br>
+      Cần gì inbox bên dưới<br>
+      <button class="button" onclick="location.href='https://zalo.me/0969093153'">
+        <i>Zalo </i>
+      </button>
+    </div>
+
+    <div class="button-container">
+      <button class="button" onclick="location.href='https://t.me/@pmh_2004'">
+        <i class="fab fa-telegram"></i> Telegram
+      </button>
+      <button class="button" onclick="location.href='https://www.facebook.com/goodboy.real.minhhieu/'">
+        <i class="fab fa-facebook"></i> Facebook
+      </button>
+      <button class="button" onclick="location.href='https://www.tiktok.com/@iam_not.ok'">
+        <i class="fab fa-tiktok"></i> TikTok
+      </button>
+      <button class="button" onclick="location.href='https://github.com/phamminhhieu2004'">
+        <i class="fab fa-github"></i> GitHub
+      </button>
+      <button class="button" onclick="location.href='https://www.instagram.com/gudboy_real.minhhieu/'">
+  <i class="fab fa-instagram"></i> Instagram
+</button>
+    </div>
+    <hr class="divider" />
+
+    <!-- QR Techcombank -->
+    <div class="donate-section">
+      <h3>Ủng hộ mình qua Techcombank</h3>
+      <img src="assets/qr_techcombank.jpg" alt="QR Code Donate" class="qr-code" />
+      <p class="bank-info">
+        NGÂN HÀNG: Techcombank<br>
+        STK: 994469999999<br>
+        CTK: PHAM MINH HIEU
+      </p>
+      <button class="button download-qr-btn" data-img="assets/qr_techcombank.jpg">
+        <i class="techcombank"></i> Tải xuống QR
+      </button>
+    </div>
+
+    <!-- QR MBBank -->
+    <div class="donate-section">
+      <h3>Ủng hộ mình qua MB Bank</h3>
+      <img src="assets/qr_mbbank.jpg" alt="QR Code Donate" class="qr-code" />
+      <p class="bank-info">
+        NGÂN HÀNG: MB Bank<br>
+        STK: 0969093153<br>
+        CTK: PHAM MINH HIEU
+      </p>
+      <button class="button download-qr-btn" data-img="assets/qr_mbbank.jpg">
+        <i class="mbbank"></i> Tải xuống QR
+      </button>
+    </div>
+  </div>
+
+      <!-- QR Momo -->
+    <div class="donate-section">
+      <h3>Ủng hộ mình qua MoMo</h3>
+      <img src="assets/qr_momo.jpg" alt="QR Code Donate" class="qr-code" />
+      <p class="bank-info">
+        NGÂN HÀNG: MoMo<br>
+        STK: 0969093153<br>
+        CTK: PHAM MINH HIEU
+      </p>
+      <button class="button download-qr-btn" data-img="assets/qr_momo.jpg">
+        <i class="momo"></i> Tải xuống QR
+      </button>
+    </div>
+  </div>
+
+  <!-- Nút nhạc -->
+  <button class="music-btn" id="music-btn">
+    <i class="fas fa-play"></i>
+  </button>
+
+  <audio id="background-music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    // Music
+    const musicBtn = document.getElementById('music-btn');
+    const music = document.getElementById('background-music');
+    const musicIcon = musicBtn.querySelector('i');
+
+    musicBtn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play().catch(error => {
+          console.error('Lỗi phát nhạc:', error);
+        });
+        musicIcon.classList.replace('fa-play', 'fa-pause');
+      } else {
+        music.pause();
+        musicIcon.classList.replace('fa-pause', 'fa-play');
+      }
+    });
+
+    // Download QR buttons
+    const downloadBtns = document.querySelectorAll('.download-qr-btn');
+
+    downloadBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        const link = document.createElement('a');
+        link.href = imgSrc;
+        link.download = imgSrc.split('/').pop();
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>
